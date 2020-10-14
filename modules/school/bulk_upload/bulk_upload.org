@@ -1,0 +1,78 @@
+#+TITLE: Bulk Upload Student Records
+#+OPTIONS: author:nil date:nil toc:nil
+#+LATEX_HEADER: \usepackage[margin=1.2in]{geometry}
+
+* Introduction
+
+This feature allows institute administrators to add student data in bulk
+conveniently. During the bulk upload process, administrators are required only
+to provide the essential data and the students themselves can complete their
+profile upon receiving their login information.
+
+Upon uploading the XLSX, the students that can be added to the database are added,
+and the additions that fail are presented with the reason of failure. The
+password of the newly created accounts is =practease123= and the students are
+expected to change it to their liking.
+
+* Accessing the Feature
+
+After logging in to the [[https://engine.practease.in/school/login][Practease Institute Module]], the feature can be accessed
+by clicking on the "Upload via XLSX" button under the "Students Management"
+view.
+
+* Requirements
+
+This feature takes input only in the form of a Microsoft Excel XLSX file built
+upon a template that can be [[https://engine.practease.in/assets/files/bulk_upload_template.xlsx][found here]]. A link to the template is also available
+on the upload form.
+
+The template has seven columns, all of which are required:
+
+- Name :: The name of the student
+- Class :: The class that the student belongs to. The class name should be
+  exactly the same as it's entered in the Practease database or the entry will
+  be rejected. As of now, it can have the following four values:
+  - 12th
+  - 11th
+  - 10th
+  - 9th
+- Section :: The section of the class that the student belongs to. The section
+  entered must be exactly the same as entered in the database or the student
+  won't be added to the database. For example, Section A.
+- Email :: The email at which the student can be reached.
+- Admission No. :: The admission number of the student as registered at the
+  institution. Each student at a institute must have a unique admission no. or the
+  entry will be rejected.
+- Role /[sic]/ No. :: The roll of the student for the class they are in.
+- Phone No. :: A phone number at which the student can be reached. Must be ten
+   digits long or the entry will be rejected.
+
+* Usage
+
+The upload form looks like this:
+
+#+ATTR_LATEX: :width 100px
+[[./images/upload_form.png]]
+
+Click on "Browse" to select an XLSX file for upload. Then, click on "Upload" to
+upload the file. Keep in mind that only a valid XLSX file will be accepted by
+the form.
+
+Following this, the XLSX will be processed and the rows of student data will be
+attempted to add the student database. The resulting screen will show up to two
+tables:
+
+- The first one will show the students that were successfully added to the
+  database.
+- The second one will show the entries that failed to be inserted, along with
+  the reason for failure.
+
+For example, for the following input:
+
+#+ATTR_LATEX: :width 200px
+[[./images/sample_upload.png]]
+
+The following output will be produced:
+
+#+ATTR_LATEX: :height 200px
+[[./images/sample_output.png]]
